@@ -8,9 +8,9 @@ import { fileURLToPath } from "node:url";
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const entry = readFileSync(join(scriptDir, "entry.txt"), "utf8");
 
-// The entry must be exactly one line of 1-200 non-blank characters spread
-// over exactly two sentences; anything shorter, longer, or blank-only is
-// rejected here so a bad entry never reaches the output directory.
+// The entry must be exactly one line of 1-200 non-blank characters;
+// anything shorter, longer, or blank-only is rejected here so a bad
+// entry never reaches the output directory.
 if (entry.length < 1 || entry.length > 200 || entry.trim().length === 0) {
   console.error(
     `error: entry.txt must be a single line of 1-200 non-blank characters, got ${entry.length} characters`,
